@@ -1,14 +1,48 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import ErrorPage from './ErrorPage'
+import Root from './routes/Root'
+import DashboardPage from './features/dashboard'
+import SchedulesPage from './features/schedules/components'
+import SettingsPage from './features/settings/components'
+import TransactionsPage from './features/transactions/components'
+import UsersPage from './features/users/components'
+
 function App() {
-  return (
-    <div>
-      <h1 className="text-3xl">Title 1</h1>
-      <h2 className="text-2xl">Title 2</h2>
-      <h3 className="text-xl">Title 3</h3>
-      <p className="text-base">A regular paragraph</p>
-      <p className="text-sm">A description paragraph</p>
-      <p className="text-xs">A little note</p>
-    </div>
-  )
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Root />,
+      children: [
+        {
+          path: '/',
+          element: <DashboardPage />,
+        },
+        {
+          path: '/dashboard',
+          element: <DashboardPage />,
+        },
+        {
+          path: '/transactions',
+          element: <TransactionsPage />,
+        },
+        {
+          path: '/schedules',
+          element: <SchedulesPage />,
+        },
+        {
+          path: '/users',
+          element: <UsersPage />,
+        },
+        {
+          path: '/settings',
+          element: <SettingsPage />,
+        },
+      ],
+      errorElement: <ErrorPage />,
+    },
+  ])
+
+  return <RouterProvider router={router} />
 }
 
 export default App
