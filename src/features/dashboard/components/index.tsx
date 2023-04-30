@@ -1,4 +1,5 @@
 import useGetAllProducts from '../../../hooks/useGetAllProducts'
+import SummaryCards from './SummaryCards/SummaryCards'
 
 const DashboardPage = () => {
   const { products, error, isLoading } = useGetAllProducts()
@@ -10,7 +11,11 @@ const DashboardPage = () => {
     return <div>Loading Products!!!!</div>
   }
 
-  return <div>Dashboard Page</div>
+  return (
+    <div>
+      <SummaryCards />
+    </div>
+  )
 }
 
 export default DashboardPage
