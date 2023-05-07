@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Layout } from './Layout'
+import Sidebar from '../Sidebar/Sidebar'
 
 const meta: Meta<typeof Layout> = {
   title: 'Layout',
@@ -18,6 +19,9 @@ type Story = StoryObj<typeof Layout>
 
 export const Primary: Story = {
   render: () => (
-    <Layout sidebar={<div>Sidebar</div>} content={<div>Content</div>} />
+    <Layout
+      sidebar={<Sidebar />}
+      content={<div className="h-screen bg-blue-300">Content</div>}
+    />
   ),
 }
