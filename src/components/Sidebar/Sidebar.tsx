@@ -4,23 +4,20 @@ const Sidebar = () => {
   const routes = ['dashboard', 'transactions', 'schedules', 'users', 'settings']
 
   return (
-    <div className="w-80 flex h-full flex-col items-center overflow-hidden rounded bg-gray-900 text-gray-400">
-      <div className="w-full px-2">
-        {routes.map(route => (
-          <div className="mt-3 flex w-full flex-col items-center" key={route}>
-            <Link
-              to={`${route}`}
-              className="h-12 mt-2	 flex w-full items-center rounded px-3 text-lg font-bold capitalize hover:bg-gray-700 hover:text-gray-300"
-            >
-              {route}
-            </Link>
-          </div>
-        ))}
+    <>
+      <div className="flex-1">
+        <ul className="flex content-center justify-between overflow-hidden sm:flex-col">
+          {routes.map(route => (
+            <li className="bg-gray-300 p-4">{route}</li>
+          ))}
+        </ul>
       </div>
-    </div>
+      <div>
+        <p>Help</p>
+        <p>Contact Us</p>
+      </div>
+    </>
   )
 }
 
 export default Sidebar
-
-// sidebar ref: https://codepen.io/robstinson/pen/bGwpNMV
