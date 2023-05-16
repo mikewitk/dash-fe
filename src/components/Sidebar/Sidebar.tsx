@@ -8,7 +8,7 @@ const Sidebar = () => {
       <div className="flex-1">
         <ul className="flex content-center justify-between overflow-hidden sm:flex-col">
           {routes.map(route => (
-            <li className="bg-gray-300 p-4">{route}</li>
+            <Link to={`/${route}`}>{route.toLocaleUpperCase()}</Link>
           ))}
         </ul>
       </div>
