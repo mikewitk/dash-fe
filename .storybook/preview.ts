@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 import '../src/index.css'
 
 const customViewports = {
@@ -38,6 +39,8 @@ const customViewports = {
     },
   },
 }
+
+export const decorators = [withRouter]
 
 const preview: Preview = {
   parameters: {
