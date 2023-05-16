@@ -7,41 +7,40 @@ import SettingsPage from './features/settings/components'
 import TransactionsPage from './features/transactions/components'
 import UsersPage from './features/users/components'
 
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    children: [
+      {
+        path: '/',
+        element: <DashboardPage />,
+      },
+      {
+        path: '/dashboard',
+        element: <DashboardPage />,
+      },
+      {
+        path: '/transactions',
+        element: <TransactionsPage />,
+      },
+      {
+        path: '/schedules',
+        element: <SchedulesPage />,
+      },
+      {
+        path: '/users',
+        element: <UsersPage />,
+      },
+      {
+        path: '/settings',
+        element: <SettingsPage />,
+      },
+    ],
+    errorElement: <ErrorPage />,
+  },
+])
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Root />,
-      children: [
-        {
-          path: '/',
-          element: <DashboardPage />,
-        },
-        {
-          path: '/dashboard',
-          element: <DashboardPage />,
-        },
-        {
-          path: '/transactions',
-          element: <TransactionsPage />,
-        },
-        {
-          path: '/schedules',
-          element: <SchedulesPage />,
-        },
-        {
-          path: '/users',
-          element: <UsersPage />,
-        },
-        {
-          path: '/settings',
-          element: <SettingsPage />,
-        },
-      ],
-      errorElement: <ErrorPage />,
-    },
-  ])
-
   return <RouterProvider router={router} />
 }
 
